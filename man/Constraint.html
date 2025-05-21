@@ -1,0 +1,101 @@
+<!DOCTYPE html><html><head><title>R: Define a set of linearly independent constraints</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>Constraint</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Define a set of linearly independent constraints</h2>
+
+<h3>Description</h3>
+
+<p>Define a set of equality, inequality, and/or interval constraints for a parameter of dimension <code class="reqn">n</code>, using Matrix equation syntax.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>Constraint(
+  A = NULL,
+  B = NULL,
+  C = NULL,
+  a = NULL,
+  b = NULL,
+  c0 = NULL,
+  c1 = NULL,
+  n = NULL,
+  a_default = 0,
+  b_default = 0
+)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="A">A</code>, <code id="a">a</code></td>
+<td>
+<p>A <code class="reqn">k \times n</code> matrix <code>A</code> and a <code class="reqn">n</code> vector <code>a</code>, defining the equality
+constraint <code class="reqn">A x = a</code></p>
+</td></tr>
+<tr><td><code id="B">B</code>, <code id="b">b</code></td>
+<td>
+<p>A <code class="reqn">k \times n</code> matrix <code>B</code> and a <code class="reqn">n</code> vector <code>b</code>, defining the inequality
+constraint <code class="reqn">B x &gt; b</code></p>
+</td></tr>
+<tr><td><code id="C">C</code>, <code id="c0">c0</code>, <code id="c1">c1</code></td>
+<td>
+<p>A <code class="reqn">k \times n</code> matrix <code>C</code> and <code class="reqn">n</code> vectors <code>c0</code> and <code>c1</code>, defining the interval
+constraint <code class="reqn">C x \in (c_0,c_1)</code></p>
+</td></tr>
+<tr><td><code id="n">n</code></td>
+<td>
+<p>An integer greater than 0. The dimension of the parameter. Only needed when <code>A</code>,<code>B</code>, and <code>C</code> are undefined (thus, only for empty constraints)</p>
+</td></tr>
+<tr><td><code id="a_default">a_default</code>, <code id="b_default">b_default</code></td>
+<td>
+<p>Real numbers. If <code>a</code> or <code>b</code> are left undefined, they default to vectors with <code>n</code> repetitions of <code>a_default</code>/<code>b_default</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>Constraint</code> class is used to define sets of linearly independent equality, inequality, and interval
+constraints. <code>Constraint</code> objects are created by this function, and by all flavors of helper functions
+(e.g., <code>EqualityConstraint</code>, <code>LinearConstraint</code>, etc.). Constraints can be combined/intersected with the
+<code>+</code> operator, and this is the suggested way to build up constraints.
+</p>
+<p><code>Constraint()</code> acts as the constructor for the <code>Constraint</code> class. Directly using it
+is the most flexible, but also the least &quot;user-friendly&quot; way to specify constraints
+(e.g. the exact matrices and vectors need to be figured out beforehand).
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>Constraint</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># NULL
+
+</code></pre>
+
+</main>
+
+</div>
+</body></html>
