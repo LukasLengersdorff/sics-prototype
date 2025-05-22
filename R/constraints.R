@@ -418,9 +418,9 @@ LinearConstraint = function(equation_string, vars = NULL, n = NULL, default_var 
     .sgn = .charmatrix[,2]
     .rhs = .charmatrix[,3]
     # Flip "<" to ">"
-    lhs = if_else(.sgn == "<", .rhs, .lhs)
-    rhs = if_else(.sgn == "<", .lhs, .rhs)
-    sgn = if_else(.sgn == "<", ">", .sgn)
+    lhs = dplyr::if_else(.sgn == "<", .rhs, .lhs)
+    rhs = dplyr::if_else(.sgn == "<", .lhs, .rhs)
+    sgn = dplyr::if_else(.sgn == "<", ">", .sgn)
     # All to lefthand side
     expressions = sprintf("%s - (%s)", lhs, rhs)
     M = sapply(expressions, .expression2vector, vars = vars, append_const = TRUE)
